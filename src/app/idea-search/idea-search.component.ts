@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-idea-search',
@@ -7,9 +8,25 @@ import { Component, OnInit } from '@angular/core';
 })
 export class IdeaSearchComponent implements OnInit {
 
-  constructor() { }
+  private wordA: string;
+  private wordB: string;
 
-  ngOnInit() {
+  constructor(private route: ActivatedRoute) { 
+
+	  	this.route
+		  .queryParams.subscribe(params => {
+		    	let A: string = params['wordA'];
+		    	let B: string= params['wordB'];
+
+		    	if(A && B){
+		    		this.wordA = A; 
+		    		this.wordB = B;
+		    	}
+
+		});
+	  
   }
+
+  ngOnInit() {  }
 
 }

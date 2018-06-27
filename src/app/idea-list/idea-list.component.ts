@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 
 @Component({
   selector: 'app-idea-list',
@@ -6,6 +6,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./idea-list.component.css']
 })
 export class IdeaListComponent implements OnInit {
+
+  @Input() ideas: string[];
 
   constructor() { }
 

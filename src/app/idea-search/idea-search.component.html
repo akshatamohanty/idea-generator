@@ -1,3 +1,4 @@
-<p>
-  idea-search works!
-</p>
+<input [(ngModel)]='wordA'>
+<input [(ngModel)]='wordB'>
+
+<a [routerLink]="['/results']" [queryParams]="{wordA: wordA, wordB: wordB}">Generate!</a>

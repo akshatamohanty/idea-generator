@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 
 @Component({
   selector: 'app-idea-detail',
@@ -6,6 +6,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./idea-detail.component.css']
 })
 export class IdeaDetailComponent implements OnInit {
+
+  @Input() phrase: string;
 
   constructor() { }
 

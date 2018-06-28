@@ -27,7 +27,7 @@ export class IdeaListComponent implements OnInit {
 
   increment(){
     if(this.ideas){
-      this.displayedCount = Math.max( this.ideas.length : this.displayedCount + this.incrementValue );
+      this.displayedCount = Math.max( this.ideas.length, this.displayedCount + this.incrementValue );
     }
 
   }

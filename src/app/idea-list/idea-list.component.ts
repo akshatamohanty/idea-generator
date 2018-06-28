@@ -18,11 +18,11 @@ export class IdeaListComponent implements OnInit {
   ngOnInit() { }
 
   ideaPinned($event): void{
-  	this.snackBar.open($event);
+  	this.snackBar.open($event, '', {duration: 400});
   }
 
   ideaShared($event): void{
-    this.snackBar.open('Feature coming soon!');
+    this.snackBar.open('Feature coming soon!', '', {duration: 400} );
   }
 
   increment(){

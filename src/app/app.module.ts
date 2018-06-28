@@ -7,7 +7,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatButtonModule, 
          MatInputModule, MatIconModule, 
-         MatCardModule, MatSnackBarModule, 
+         MatCardModule, MatSnackBarModule, MatToolbarModule,
          MatProgressSpinnerModule } from '@angular/material';
 
 import { AppComponent } from './app.component';
@@ -53,6 +53,7 @@ const appRoutes: Routes = [
     MatCardModule,
     MatSnackBarModule,
     MatButtonModule,
+    MatToolbarModule,
     MatProgressSpinnerModule,
     RouterModule.forRoot( appRoutes, {enableTracing: false} )
   ],

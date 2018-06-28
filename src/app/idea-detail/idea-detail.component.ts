@@ -11,7 +11,7 @@ export class IdeaDetailComponent implements OnInit {
   @Output() pinned = new EventEmitter();
   @Output() shared = new EventEmitter();
 
-  private isPinned: boolean;
+  isPinned: boolean;
 
   constructor() { }
 

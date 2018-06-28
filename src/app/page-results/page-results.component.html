@@ -1,6 +1,21 @@
+<mat-toolbar color="accent">
+  <mat-toolbar-row>
+    <span><b>IdeaGenerator.</b></span>
+    <span class="example-spacer"></span>
+    <a target="_blank"
+    	href="https://twitter.com/intent/tweet?text={{tweet}}!">
+    	<mat-icon class="example-icon">share</mat-icon>
+    </a>
+    <a>
+    	<mat-icon class="example-icon">account_circle</mat-icon>
+	</a>
+  </mat-toolbar-row>
+</mat-toolbar>
+
+
 <div class="page page--results">
 
-	<h1 class="page__element--header">Idea Generator App.</h1>
+	<!-- <h1 class="page__element--header">Idea Generator App.</h1> -->
 	<app-idea-search [wordA]='wordA' [wordB]='wordB' [compressed]="true"></app-idea-search>
 
 	<app-idea-list [ideas]='results | async'></app-idea-list>

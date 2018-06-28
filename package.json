@@ -1,12 +1,13 @@
 {
   "name": "idea-gen",
+  "engines" : { "node" : ">=6.0" }, 
   "version": "0.0.0",
   "license": "MIT",
   "scripts": {
     "ng": "ng",
     "client": "ng serve --proxy-config server.conf.json",
     "server": "nodemon ./bin/www",
-    "start": "npm-run-all -p client server",
+    "start": "node ./bin/www",
     "build": "ng build --prod",
     "test": "ng test",
     "lint": "ng lint",

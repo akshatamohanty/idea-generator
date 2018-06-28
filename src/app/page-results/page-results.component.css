@@ -2,7 +2,7 @@
 * @Author: Akshata
 * @Date:   2018-06-28 00:05:30
 * @Last Modified by:   Akshata
-* @Last Modified time: 2018-06-28 20:32:12
+* @Last Modified time: 2018-06-29 00:25:00
 */
 
 .page--results{
@@ -15,4 +15,12 @@
 .page__content-wrapper{
 	display: flex; 
 	flex-direction: column;
+}
+
+.example-icon {
+  padding: 0 14px;
+}
+
+.example-spacer {
+  flex: 1 1 auto;
 }

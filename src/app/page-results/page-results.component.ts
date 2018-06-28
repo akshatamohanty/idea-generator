@@ -10,6 +10,7 @@ import { IdeaService } from '../idea.service';
 })
 export class PageResultsComponent implements OnInit {
 
+  tweet: string = "Check out the Idea Generator at https://akshatamohanty.github.io/idea-generator";
   wordA: string;
   wordB: string;
   results;

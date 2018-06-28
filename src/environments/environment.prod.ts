@@ -1,3 +1,4 @@
 export const environment = {
-  production: true
+  production: true,
+  baseUrl: 'https://idea-generator-1991.appspot.com/api/'
 };

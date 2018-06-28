@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { IdeaService } from '../idea.service';
+
 
 @Component({
   selector: 'app-page-results',
@@ -7,9 +10,29 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PageResultsComponent implements OnInit {
 
-  constructor() { }
+  wordA: string;
+  wordB: string;
+  results;
 
-  ngOnInit() {
+  constructor(private route: ActivatedRoute, private ideaService: IdeaService) {
+
+	  	this.route
+		  .queryParams.subscribe(params => {
+		    	let A: string = params['wordA'];
+		    	let B: string= params['wordB'];
+
+		    	if(A && B){
+		    		this.wordA = A; 
+		    		this.wordB = B;
+
+		    		this.results = ideaService.getIdeas();
+		    	}
+
+		});
+	  
+
   }
+
+  ngOnInit() { }
 
 }

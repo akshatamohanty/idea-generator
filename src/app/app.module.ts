@@ -1,6 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http'; 
 
 import { RouterModule, Routes } from '@angular/router';
 
@@ -10,6 +11,8 @@ import { IdeaListComponent } from './idea-list/idea-list.component';
 import { IdeaDetailComponent } from './idea-detail/idea-detail.component';
 import { PageLandingComponent } from './page-landing/page-landing.component';
 import { PageResultsComponent } from './page-results/page-results.component';
+
+import { IdeaService } from './idea.service';
 
 const appRoutes: Routes = [
   {
@@ -35,9 +38,10 @@ const appRoutes: Routes = [
   imports: [
     BrowserModule,
     FormsModule,
+    HttpClientModule,
     RouterModule.forRoot( appRoutes, {enableTracing: false} )
   ],
-  providers: [],
+  providers: [ IdeaService ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

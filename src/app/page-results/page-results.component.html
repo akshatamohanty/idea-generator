@@ -1,7 +1,7 @@
 <div class="container">
 	
-	<app-idea-search></app-idea-search>
+	<app-idea-search [wordA]='wordA' [wordB]='wordB'></app-idea-search>
 
-	<app-idea-list [ideas]='["test", "some", "ideas"]'></app-idea-list>
+	<app-idea-list [ideas]='results | async'></app-idea-list>
 
 </div>

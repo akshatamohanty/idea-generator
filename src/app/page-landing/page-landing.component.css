@@ -2,5 +2,14 @@
 * @Author: Akshata
 * @Date:   2018-06-28 00:05:15
 * @Last Modified by:   Akshata
-* @Last Modified time: 2018-06-28 00:15:23
+* @Last Modified time: 2018-06-28 20:31:04
 */
+.page--landing{
+	padding-top: 150px;
+	text-align: center;
+}
+
+.page__content-wrapper{
+	display: flex; 
+	flex-direction: column;
+}

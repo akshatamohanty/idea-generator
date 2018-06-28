@@ -1,4 +1,8 @@
-<input [(ngModel)]='wordA'>
-<input [(ngModel)]='wordB'>
-
-<a [routerLink]="['/results']" [queryParams]="{wordA: wordA, wordB: wordB}">Generate!</a>
+<div class="search__wrapper" [class.compressed]="compressed">
+	<input class="search__inputs" placeholder="Idea One" [(ngModel)]='wordA' name='wordA'/>
+	<input class="search__inputs" placeholder="Idea Two" [(ngModel)]='wordB' name='wordB'/>
+	<a class="btn search__button" [routerLink]="['/results']" [queryParams]="{wordA: wordA, wordB: wordB}">
+		<span *ngIf="!compressed">Get Ideas!</span>
+		<span *ngIf="compressed">R</span>
+	</a>
+</div>

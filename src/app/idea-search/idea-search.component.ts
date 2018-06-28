@@ -9,6 +9,7 @@ export class IdeaSearchComponent implements OnInit {
 
   @Input() wordA: string;
   @Input() wordB: string;
+  @Input() compressed: boolean;
 
   ngOnInit() {  }
 

@@ -1,6 +1,10 @@
-<div class="container">
+<div class="page page--results">
+
+	<h1 class="page__element--header">Idea Generator App</h1>
 	
-	<app-idea-search [wordA]='wordA' [wordB]='wordB'></app-idea-search>
+	<app-idea-search [wordA]='wordA' [wordB]='wordB' [compressed]="true"></app-idea-search>
+
+	<hr/>
 
 	<app-idea-list [ideas]='results | async'></app-idea-list>
 

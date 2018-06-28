@@ -1,0 +1,23 @@
+/*
+* @Author: Akshata
+* @Date:   2018-06-27 22:02:15
+* @Last Modified by:   Akshata
+* @Last Modified time: 2018-06-28 20:40:38
+*/
+
+
+.wrapper__idea{
+	background-color: white;
+	padding: 15px;
+
+	color: black;
+	font-size: 18px;
+	border: 1px solid black;
+	border-radius: 4px;
+
+	margin: 15px;
+}
+
+.idea__actions{
+	margin-top: 15px;
+}

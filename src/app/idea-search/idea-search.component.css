@@ -1,0 +1,53 @@
+/*
+* @Author: Akshata
+* @Date:   2018-06-27 22:01:46
+* @Last Modified by:   Akshata
+* @Last Modified time: 2018-06-28 20:39:57
+*/
+
+
+.search__wrapper{
+	display: flex;
+	flex-direction: column;
+	flex-wrap: wrap;
+	justify-content: space-between;
+	align-items: center;
+}	
+
+.compressed{
+	flex-direction: row;
+	flex-wrap: no-wrap;
+}
+
+.search__inputs{
+	background: transparent;
+	font-size: 25px;
+	font-weight: 300;
+
+	margin: 15px;
+	padding: 5px;
+
+	border: 0px;
+	border-bottom: 1px solid gray;
+	text-align: center;
+
+}
+
+.search__button{
+	height: 50px;
+
+	margin-top: 50px;
+
+	font-size: 18px;
+	line-height: 50px;
+	text-transform: uppercase;
+
+	padding: 10px;
+
+	border: 1px solid #222; 
+	background-color: black;
+	color: #f7f7f7;
+	border-radius: 4px;
+	text-align: center;
+}
+

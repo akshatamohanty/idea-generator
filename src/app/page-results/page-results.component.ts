@@ -25,7 +25,8 @@ export class PageResultsComponent implements OnInit {
 		    		this.wordA = A; 
 		    		this.wordB = B;
 
-		    		this.results = ideaService.getIdeas();
+		    		// Todo: Memory leaks?
+		    		this.results = ideaService.getIdeas(this.wordA, this.wordB);
 		    	}
 
 		});

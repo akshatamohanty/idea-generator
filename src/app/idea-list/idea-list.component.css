@@ -2,10 +2,9 @@
 * @Author: Akshata
 * @Date:   2018-06-27 22:02:01
 * @Last Modified by:   Akshata
-* @Last Modified time: 2018-06-28 21:01:03
+* @Last Modified time: 2018-06-28 23:54:56
 */
 
 .wrapper__ideas{
-	max-height: 500px;
 	overflow: auto;
 }

@@ -8,4 +8,6 @@
 			(pinned)="ideaPinned($event)"
 			(shared)="ideaShared($event)"></app-idea-detail>
 	</ng-container>
+
+	<mat-spinner *ngIf='!ideas' style="margin: 0 auto;"></mat-spinner>
 </div>

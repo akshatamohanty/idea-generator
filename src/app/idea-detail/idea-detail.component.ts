@@ -21,11 +21,12 @@ export class IdeaDetailComponent implements OnInit {
 
   pin(): void{
   	this.isPinned=!this.isPinned;
-    this.pinned.emit(this.phrase);
+    let msg: string = `Option ${this.phrase} was ${this.isPinned ? "pinned" : "unpinned"}`;
+    this.pinned.emit(msg);
   }
 
   share(): void{
-    this.shared.emit(this.phrase);
+    this.shared.emit(null);
   }
 
 }

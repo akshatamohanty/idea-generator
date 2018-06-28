@@ -17,7 +17,7 @@
 	</mat-form-field>
 
 	<a class="btn search__button" 
-		*ngIf="wordA.length > 0 && wordB.length > 0"
+		*ngIf="wordA && wordB"
 		[routerLink]="['/results']" [queryParams]="{wordA: wordA, wordB: wordB}">
 
 		<button mat-raised-button color="accent" *ngIf="!compressed">Get Ideas!</button>

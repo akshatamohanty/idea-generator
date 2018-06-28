@@ -7,7 +7,8 @@ import { RouterModule, Routes } from '@angular/router';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatButtonModule, 
          MatInputModule, MatIconModule, 
-         MatCardModule, MatButtonModule } from '@angular/material';
+         MatCardModule, MatSnackBarModule, 
+         MatProgressSpinnerModule } from '@angular/material';
 
 import { AppComponent } from './app.component';
 import { IdeaSearchComponent } from './idea-search/idea-search.component';
@@ -50,7 +51,9 @@ const appRoutes: Routes = [
     MatInputModule,
     MatIconModule,
     MatCardModule,
+    MatSnackBarModule,
     MatButtonModule,
+    MatProgressSpinnerModule,
     RouterModule.forRoot( appRoutes, {enableTracing: false} )
   ],
   providers: [ IdeaService ],

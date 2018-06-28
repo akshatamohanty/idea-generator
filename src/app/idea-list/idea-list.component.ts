@@ -1,4 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
+import { MatSnackBar } from '@angular/material';
 
 @Component({
   selector: 'app-idea-list',
@@ -11,7 +12,15 @@ export class IdeaListComponent implements OnInit {
 
   constructor() { }
 
-  ngOnInit() {
+  ngOnInit() {  }
+
+  ideaPinned($event): void{
+  	console.log($event + " pinned");
+  	//this.snackBar.snackBar.open('Option pinned', {duration: 200});
+  }
+
+  ideaShare($event): void{
+    console.log($event + " shared");
   }
 
 }

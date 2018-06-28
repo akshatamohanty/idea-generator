@@ -16,6 +16,8 @@ import { PageResultsComponent } from './page-results/page-results.component';
 
 import { IdeaService } from './idea.service';
 
+import 'hammerjs';
+
 const appRoutes: Routes = [
   {
     path: 'results',

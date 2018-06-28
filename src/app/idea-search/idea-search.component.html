@@ -1,7 +1,7 @@
 <div class="search__wrapper" [class.compressed]="compressed">
-	<input class="search__inputs" placeholder="Idea One" [(ngModel)]='wordA' name='wordA'/>
+	<input matInput class="search__inputs" placeholder="Idea One" [(ngModel)]='wordA' name='wordA'/>
 	<span><mat-icon>add</mat-icon></span>
-	<input class="search__inputs" placeholder="Idea Two" [(ngModel)]='wordB' name='wordB'/>
+	<input matInput class="search__inputs" placeholder="Idea Two" [(ngModel)]='wordB' name='wordB'/>
 	<a class="btn search__button" [routerLink]="['/results']" [queryParams]="{wordA: wordA, wordB: wordB}">
 		<span *ngIf="!compressed">Get Ideas!</span>
 		<span *ngIf="compressed"><mat-icon>refresh</mat-icon></span>

@@ -37,7 +37,7 @@ a::visited{
 
 /* Let's get this party started */
 ::-webkit-scrollbar {
-    width: 12px;
+    width: 5px;
 }
  
 /* Track */

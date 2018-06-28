@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-idea-detail',
@@ -8,6 +8,8 @@ import { Component, OnInit, Input } from '@angular/core';
 export class IdeaDetailComponent implements OnInit {
 
   @Input() phrase: string;
+  @Output() pinned = new EventEmitter();
+  @Output() shared = new EventEmitter();
 
   private isPinned: boolean;
 
@@ -18,7 +20,12 @@ export class IdeaDetailComponent implements OnInit {
   }
 
   pin(): void{
-  	this.isPinned=!this.isPinned
+  	this.isPinned=!this.isPinned;
+    this.pinned.emit(this.phrase);
+  }
+
+  share(): void{
+    this.shared.emit(this.phrase);
   }
 
 }

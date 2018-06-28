@@ -2,7 +2,7 @@
 * @Author: Akshata
 * @Date:   2018-06-27 22:02:15
 * @Last Modified by:   Akshata
-* @Last Modified time: 2018-06-28 20:40:38
+* @Last Modified time: 2018-06-28 21:06:32
 */
 
 
@@ -16,8 +16,20 @@
 	border-radius: 4px;
 
 	margin: 15px;
+
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	justify-content: space-between;
 }
 
 .idea__actions{
-	margin-top: 15px;
+	position: relative;
+}
+
+.wrapper--right{
+}
+
+.icon{
+	cursor: pointer;
 }

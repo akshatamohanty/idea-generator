@@ -5,7 +5,9 @@
 	</div>
 
 	<div class="idea__actions">
-		<button>Share</button>
-		<button>Pin</button>
+		<div class="wrapper--right">
+			<mat-icon class="icon">share</mat-icon>
+			<mat-icon class="icon" (click)='pin()'>{{ isPinned ? 'favorite' : 'favorite_border' }} </mat-icon>
+		</div>
 	</div>
 </div>

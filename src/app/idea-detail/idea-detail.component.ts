@@ -9,9 +9,16 @@ export class IdeaDetailComponent implements OnInit {
 
   @Input() phrase: string;
 
+  private isPinned: boolean;
+
   constructor() { }
 
   ngOnInit() {
+  	this.isPinned = false;
+  }
+
+  pin(): void{
+  	this.isPinned=!this.isPinned
   }
 
 }

@@ -8,19 +8,30 @@ import { MatSnackBar } from '@angular/material';
 })
 export class IdeaListComponent implements OnInit {
 
+  readonly incrementValue: number = 5;
+
   @Input() ideas: string[];
+  private displayedCount: number = this.incrementValue; 
 
   constructor() { }
 
-  ngOnInit() {  }
+  ngOnInit() { }
 
   ideaPinned($event): void{
   	console.log($event + " pinned");
   	//this.snackBar.snackBar.open('Option pinned', {duration: 200});
   }
 
-  ideaShare($event): void{
+  ideaShared($event): void{
     console.log($event + " shared");
+  }
+
+  increment(){
+    alert("scrolling")
+    if(this.ideas){
+      this.displayedCount = Math.max( this.ideas.length : this.displayedCount + this.incrementValue );
+    }
+
   }
 
 }

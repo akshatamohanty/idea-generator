@@ -5,7 +5,9 @@ import { HttpClientModule } from '@angular/common/http';
 import { RouterModule, Routes } from '@angular/router';
 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { MatButtonModule, MatInputModule, MatIconModule } from '@angular/material';
+import { MatButtonModule, 
+         MatInputModule, MatIconModule, 
+         MatCardModule, MatButtonModule } from '@angular/material';
 
 import { AppComponent } from './app.component';
 import { IdeaSearchComponent } from './idea-search/idea-search.component';
@@ -47,6 +49,8 @@ const appRoutes: Routes = [
     MatButtonModule, 
     MatInputModule,
     MatIconModule,
+    MatCardModule,
+    MatButtonModule,
     RouterModule.forRoot( appRoutes, {enableTracing: false} )
   ],
   providers: [ IdeaService ],

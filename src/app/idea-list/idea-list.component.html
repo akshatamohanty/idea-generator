@@ -1,3 +1,11 @@
 <div class="wrapper__ideas">
-	<app-idea-detail *ngFor='let i of ideas' [phrase]='i' (pinned)="ideaPinned($event)"></app-idea-detail>
+	<ng-container 
+		*ngFor='let idea of ideas; let i=index'
+		(scroll)="increment()">
+		<app-idea-detail 
+			*ngIf="i < displayedCount"
+			[phrase]='idea' 
+			(pinned)="ideaPinned($event)"
+			(shared)="ideaShared($event)"></app-idea-detail>
+	</ng-container>
 </div>

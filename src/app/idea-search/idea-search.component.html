@@ -1,9 +1,28 @@
-<div class="search__wrapper" [class.compressed]="compressed">
-	<input matInput class="search__inputs" placeholder="Idea One" [(ngModel)]='wordA' name='wordA'/>
+<form class="search__wrapper example-form" [class.compressed]="compressed">
+	
+	<mat-form-field class="example-full-width">
+		<input matInput 
+			   placeholder="First Idea"
+			   [(ngModel)]='wordA' 
+			   name='wordA'/>
+	</mat-form-field>
+
 	<span><mat-icon>add</mat-icon></span>
-	<input matInput class="search__inputs" placeholder="Idea Two" [(ngModel)]='wordB' name='wordB'/>
-	<a class="btn search__button" [routerLink]="['/results']" [queryParams]="{wordA: wordA, wordB: wordB}">
-		<span *ngIf="!compressed">Get Ideas!</span>
-		<span *ngIf="compressed"><mat-icon>refresh</mat-icon></span>
+
+	<mat-form-field class="example-full-width">
+		<input matInput 
+			   placeholder="Second Idea"
+			   [(ngModel)]='wordB' 
+			   name='wordB'/>
+	</mat-form-field>
+
+	<a class="btn search__button" 
+		*ngIf="wordA.length > 0 && wordB.length > 0"
+		[routerLink]="['/results']" [queryParams]="{wordA: wordA, wordB: wordB}">
+
+		<button mat-raised-button color="accent" *ngIf="!compressed">Get Ideas!</button>
+		<button mat-raised-button color="accent" *ngIf="compressed"><mat-icon>refresh</mat-icon></button>
+
 	</a>
-</div>
+
+</form>

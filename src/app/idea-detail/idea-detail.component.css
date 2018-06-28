@@ -2,10 +2,10 @@
 * @Author: Akshata
 * @Date:   2018-06-27 22:02:15
 * @Last Modified by:   Akshata
-* @Last Modified time: 2018-06-28 21:06:32
+* @Last Modified time: 2018-06-28 23:02:23
 */
 
-
+/*
 .wrapper__idea{
 	background-color: white;
 	padding: 15px;
@@ -25,6 +25,7 @@
 
 .idea__actions{
 	position: relative;
+	text-align: right;
 }
 
 .wrapper--right{
@@ -32,4 +33,32 @@
 
 .icon{
 	cursor: pointer;
+	font-size: 32px;
+	margin: 0px 15px;
+}
+
+.idea-card{
+	margin: 15px;
+}
+
+.card__header{
+	font-size: 24px;
+	font-weight: 300;
+	text-align: center;
+}
+
+*/
+
+.idea-card{
+	margin-bottom: 10px;
+}
+
+.card__header{
+	font-size: 24px;
+	font-weight: 300;
+	text-align: center;
+}
+
+.card__actions{
+	text-align: right;
 }

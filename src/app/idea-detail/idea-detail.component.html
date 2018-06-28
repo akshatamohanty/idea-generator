@@ -1,13 +1,13 @@
-<div class="wrapper__idea">
-	
-	<div class="idea__content">
-		{{phrase}}
-	</div>
-
-	<div class="idea__actions">
-		<div class="wrapper--right">
+<mat-card class="idea-card noselect">
+  <mat-card-header>
+    <mat-card-title class="card__header">{{phrase}}</mat-card-title>
+  </mat-card-header>
+  <mat-card-actions class="card__actions">
+	  	<button mat-icon-button color="accent">
 			<mat-icon class="icon">share</mat-icon>
+		</button>
+		<button mat-icon-button color="accent">
 			<mat-icon class="icon" (click)='pin()'>{{ isPinned ? 'favorite' : 'favorite_border' }} </mat-icon>
-		</div>
-	</div>
-</div>
+		</button>
+  </mat-card-actions>
+</mat-card>

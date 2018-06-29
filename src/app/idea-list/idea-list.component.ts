@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, HostListener } from '@angular/core';
 import { MatSnackBar } from '@angular/material';
 
 @Component({
@@ -15,6 +15,22 @@ export class IdeaListComponent implements OnInit {
 
   constructor(public snackBar: MatSnackBar) { }
 
+  // todo: Memory Leak?
+  @HostListener("window:scroll", [])
+  onScroll(): void {
+  if ((window.innerHeight + window.scrollY) >= document.body.offsetHeight) {
+          if(this.displayedCount < this.ideas.length){
+              this.snackBar.open('Adding a few more ideas!', '', {duration: 800} );
+              setTimeout(()=>{   
+                    this.displayedCount++;
+              }, 1000);
+          }
+          else{
+            this.snackBar.open('Oops... out of ideas for now!', '', {duration: 400} );
+          }
+      }
+  }
+
   ngOnInit() { }
 
   ideaPinned($event): void{
@@ -25,11 +41,5 @@ export class IdeaListComponent implements OnInit {
     this.snackBar.open('Feature coming soon!', '', {duration: 400} );
   }
 
-  increment(){
-    if(this.ideas){
-      this.displayedCount = Math.max( this.ideas.length, this.displayedCount + this.incrementValue );
-    }
-
-  }
 
 }

@@ -1,7 +1,6 @@
 <div class="wrapper__ideas">
 	<ng-container 
-		*ngFor='let idea of ideas; let i=index'
-		(scroll)="increment()">
+		*ngFor='let idea of ideas; let i=index'>
 		<app-idea-detail 
 			*ngIf="i < displayedCount"
 			[phrase]='idea' 

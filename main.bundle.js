@@ -269,7 +269,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/idea-list/idea-list.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"wrapper__ideas\">\r\n\t<ng-container \r\n\t\t*ngFor='let idea of ideas; let i=index'\r\n\t\t(scroll)=\"increment()\">\r\n\t\t<app-idea-detail \r\n\t\t\t*ngIf=\"i < displayedCount\"\r\n\t\t\t[phrase]='idea' \r\n\t\t\t(pinned)=\"ideaPinned($event)\"\r\n\t\t\t(shared)=\"ideaShared($event)\"></app-idea-detail>\r\n\t</ng-container>\r\n\r\n\t<mat-spinner *ngIf='!ideas' style=\"margin: 0 auto;\"></mat-spinner>\r\n</div>"
+module.exports = "<div class=\"wrapper__ideas\">\r\n\t<ng-container \r\n\t\t*ngFor='let idea of ideas; let i=index'>\r\n\t\t<app-idea-detail \r\n\t\t\t*ngIf=\"i < displayedCount\"\r\n\t\t\t[phrase]='idea' \r\n\t\t\t(pinned)=\"ideaPinned($event)\"\r\n\t\t\t(shared)=\"ideaShared($event)\"></app-idea-detail>\r\n\t</ng-container>\r\n\r\n\t<mat-spinner *ngIf='!ideas' style=\"margin: 0 auto;\"></mat-spinner>\r\n</div>"
 
 /***/ }),
 
@@ -297,6 +297,22 @@ var IdeaListComponent = /** @class */ (function () {
         this.incrementValue = 5;
         this.displayedCount = this.incrementValue;
     }
+    // todo: Memory Leak?
+    IdeaListComponent.prototype.onScroll = function () {
+        var _this = this;
+        if ((window.innerHeight + window.scrollY) >= document.body.offsetHeight) {
+            if (this.displayedCount < this.ideas.length) {
+                this.snackBar.open('Adding a few more ideas!', '', { duration: 800 });
+                setTimeout(function () {
+                    _this.displayedCount += 10;
+                    console.log(_this.displayedCount);
+                }, 1000);
+            }
+            else {
+                this.snackBar.open('Oops... out of ideas for now!', '', { duration: 400 });
+            }
+        }
+    };
     IdeaListComponent.prototype.ngOnInit = function () { };
     IdeaListComponent.prototype.ideaPinned = function ($event) {
         this.snackBar.open($event, '', { duration: 400 });
@@ -304,15 +320,16 @@ var IdeaListComponent = /** @class */ (function () {
     IdeaListComponent.prototype.ideaShared = function ($event) {
         this.snackBar.open('Feature coming soon!', '', { duration: 400 });
     };
-    IdeaListComponent.prototype.increment = function () {
-        if (this.ideas) {
-            this.displayedCount = Math.max(this.ideas.length, this.displayedCount + this.incrementValue);
-        }
-    };
     __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["F" /* Input */])(),
         __metadata("design:type", Array)
     ], IdeaListComponent.prototype, "ideas", void 0);
+    __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["A" /* HostListener */])("window:scroll", []),
+        __metadata("design:type", Function),
+        __metadata("design:paramtypes", []),
+        __metadata("design:returntype", void 0)
+    ], IdeaListComponent.prototype, "onScroll", null);
     IdeaListComponent = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
             selector: 'app-idea-list',
@@ -461,7 +478,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/page-landing/page-landing.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"page page--landing\">\r\n\r\n\t<div class=\"page__content-wrapper\">\r\n\r\n\t\t<h1 class=\"page__element--header logo\">IdeaMaker.</h1>\r\n\r\n\t\t<p class=\"page__element--description\">\r\n\t\t\tLorem ipsum in labore dolore aliqua in commodo commodo aliqua anim dolor duis dolore dolore sed elit culpa nulla quis.\r\n\t\t</p>\r\n\r\n\t\t<app-idea-search class=\"page__element--full-width\"></app-idea-search>\r\n\r\n\t</div>\r\n\r\n</div>\r\n\r\n\r\n"
+module.exports = "<div class=\"page page--landing page--responsive\">\r\n\r\n\t<div class=\"page__content-wrapper\">\r\n\r\n\t\t<h1 class=\"page__element--header logo\">IdeaMaker.</h1>\r\n\r\n\t\t<p class=\"page__element--description\">\r\n\t\t\tLorem ipsum in labore dolore aliqua in commodo commodo aliqua anim dolor duis dolore dolore sed elit culpa nulla quis.\r\n\t\t</p>\r\n\r\n\t\t<app-idea-search class=\"page__element--full-width\"></app-idea-search>\r\n\r\n\t</div>\r\n\r\n</div>\r\n\r\n\r\n"
 
 /***/ }),
 
@@ -522,7 +539,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/page-results/page-results.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"page\">\r\n    <mat-toolbar class=\"page__header\">\r\n      \r\n      <mat-toolbar-row class=\"toolbar__row\">\r\n\r\n        <span class=\"logo\"><a href=\"/\">IdeaMaker.</a></span>\r\n        \r\n        <div class=\"spacer\"></div>\r\n        \r\n        <a target=\"_blank\"\r\n        \thref=\"https://twitter.com/intent/tweet?text={{tweet}}!\">\r\n        \t<mat-icon class=\"icon\">share</mat-icon>\r\n        </a>\r\n        <a>\r\n        \t<mat-icon class=\"icon\">account_circle</mat-icon>\r\n    \t</a>\r\n      \r\n      </mat-toolbar-row>\r\n\r\n    </mat-toolbar>\r\n\r\n\r\n    <div class=\"page__content\">\r\n\r\n        <app-idea-search [wordA]='wordA' [wordB]='wordB' [compressed]=\"true\"></app-idea-search>\r\n\r\n        <h2 class=\"page__content__subheading\">\r\n            Do you like these ideas for <span class=\"highlight\">{{wordA}}</span> and <span class=\"highlight\">{{wordB}}</span>?\r\n        </h2>\r\n       \r\n        <app-idea-list [ideas]='results | async'></app-idea-list>\r\n\r\n    </div>\r\n</div>\r\n"
+module.exports = "<div class=\"page page--results page--responsive\">\r\n    <mat-toolbar class=\"page__header\">\r\n      \r\n      <mat-toolbar-row class=\"toolbar__row\">\r\n\r\n        <span class=\"logo\"><a href=\"./\">IdeaMaker.</a></span>\r\n        \r\n        <div class=\"spacer\"></div>\r\n        \r\n        <a target=\"_blank\"\r\n        \thref=\"https://twitter.com/intent/tweet?text={{tweet}}!\">\r\n        \t<mat-icon class=\"icon\">share</mat-icon>\r\n        </a>\r\n        <a>\r\n        \t<mat-icon class=\"icon\">account_circle</mat-icon>\r\n    \t</a>\r\n      \r\n      </mat-toolbar-row>\r\n\r\n    </mat-toolbar>\r\n\r\n\r\n    <div class=\"page__content\">\r\n\r\n        <app-idea-search [wordA]='wordA' [wordB]='wordB' [compressed]=\"true\"></app-idea-search>\r\n\r\n        <h2 class=\"page__content__subheading\">\r\n            Do you like these ideas for <span class=\"highlight\">{{wordA}}</span> and <span class=\"highlight\">{{wordB}}</span>?\r\n        </h2>\r\n       \r\n        <app-idea-list [ideas]='results | async'></app-idea-list>\r\n\r\n    </div>\r\n</div>\r\n"
 
 /***/ }),
 

@@ -11,9 +11,14 @@
         	href="https://twitter.com/intent/tweet?text={{tweet}}!">
         	<mat-icon class="icon">share</mat-icon>
         </a>
-        <a>
-        	<mat-icon class="icon">account_circle</mat-icon>
+        <a href="{{baseUrl}}auth/linkedin" *ngIf='!user'>
+        	<mat-icon class="icon" matTooltip="Not Logged In">account_circle</mat-icon>
     	</a>
+        <a href="{{baseUrl}}logout" *ngIf='user'>
+            <span class="icon--profile"  matTooltip="{{user?.firstName}} {{user?.lastName}}">
+                {{user?.firstName[0]}}{{user?.lastName[0]}}
+            </span>
+        </a>
       
       </mat-toolbar-row>
 
@@ -28,7 +33,10 @@
             Do you like these ideas for <span class="highlight">{{wordA}}</span> and <span class="highlight">{{wordB}}</span>?
         </h2>
        
-        <app-idea-list [ideas]='results | async'></app-idea-list>
+        <app-idea-list
+            [ideas]='results | async' 
+            (scrolled)='onScroll($event)'>
+        </app-idea-list>
 
     </div>
 </div>

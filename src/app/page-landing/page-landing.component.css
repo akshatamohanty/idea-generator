@@ -2,7 +2,7 @@
 * @Author: Akshata
 * @Date:   2018-06-28 00:05:15
 * @Last Modified by:   Akshata
-* @Last Modified time: 2018-06-29 21:28:01
+* @Last Modified time: 2018-06-30 01:51:22
 */
 .page--landing{
 	margin-top: 90px;
@@ -20,4 +20,21 @@
 
 .page__element--full-width{
 	width: 100%;
+}
+
+
+.icon--profile{
+	font-size: 14px;
+	border-radius: 50%;
+	color: #E6CB68;
+	
+	background: #222;
+	width: 50px;
+    height: 50px;
+    font-size: 32px;
+    line-height: 50px;
+    text-align: center;
+    padding: 10px;
+    color: #E6CB68;
+    background: #222;
 }

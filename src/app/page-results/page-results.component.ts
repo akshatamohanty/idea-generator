@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { IdeaService } from '../idea.service';
-
+import { AuthenticationService } from '../authentication.service';
 
 @Component({
   selector: 'app-page-results',
@@ -10,12 +10,19 @@ import { IdeaService } from '../idea.service';
 })
 export class PageResultsComponent implements OnInit {
 
-  tweet: string = "Check out the Idea Generator at https://akshatamohanty.github.io/idea-generator";
+  tweet: string = "Check out the Idea Maker at \
+                  https://akshatamohanty.github.io/idea-generator";
   wordA: string;
   wordB: string;
   results;
+  baseUrl;
+  user;
 
-  constructor(private route: ActivatedRoute, private ideaService: IdeaService) {
+  constructor(private route: ActivatedRoute, 
+              private ideaService: IdeaService, 
+              private authService: AuthenticationService) {
+
+      this.baseUrl = authService.base;
 
 	  	this.route
 		  .queryParams.subscribe(params => {
@@ -28,6 +35,7 @@ export class PageResultsComponent implements OnInit {
 
 		    		// Todo: Memory leaks?
 		    		this.results = ideaService.getIdeas(this.wordA, this.wordB);
+
 		    	}
 
 		});
@@ -35,6 +43,18 @@ export class PageResultsComponent implements OnInit {
 
   }
 
-  ngOnInit() { }
+  ngOnInit() { this.user = this.authService.loggedInUser; }
+
+  onScroll($event){
+  		if($event > 30 && !this.user){
+  			// Todo: show login screen
+  		}
+  }
+
+  login(){
+    this.user = this.authService
+                .loginWithLinkedIn()
+                .subscribe((data)=>console.log(data));
+  }
 
 }

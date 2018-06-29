@@ -2,6 +2,10 @@
 
 	<div class="page__content-wrapper">
 
+		<span class="icon--profile" *ngIf="user">
+            {{user?.firstName[0]}}{{user?.lastName[0]}}
+        </span>
+
 		<h1 class="page__element--header logo">IdeaMaker.</h1>
 
 		<p class="page__element--description">

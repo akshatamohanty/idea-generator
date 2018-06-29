@@ -2,7 +2,7 @@
 * @Author: Akshata
 * @Date:   2018-06-27 21:55:39
 * @Last Modified by:   Akshata
-* @Last Modified time: 2018-06-29 02:33:14
+* @Last Modified time: 2018-06-30 01:38:39
 */
 
 
@@ -11,41 +11,60 @@ var path = require('path');
 var favicon = require('serve-favicon');
 var logger = require('morgan');
 var bodyParser = require('body-parser');
+var cors = require('cors');
+var passport = require('passport');
+var session = require('express-session');
+var cookieParser = require('cookie-parser');
+//var cookieSession = require('cookie-session');
 
-var ideas = require('./routes/api');
+
 var app = express();
+app.use(cors())
+app.use(logger('dev'));
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({extended:false}));
+app.use(express.static(path.join(__dirname, 'dist')));
+app.set('views', path.join(__dirname, 'views'));
+app.set('view engine', 'ejs');
 
-// Add headers
-// Todo: Production?
-app.use(function (req, res, next) {
-
-    // Website you wish to allow to connect
-    var allowedOrigins = ['http://localhost:4200', 'https://akshatamohanty.github.io'];
-    var origin = req.headers.origin;
-    if(allowedOrigins.indexOf(origin) > -1){
-         res.setHeader('Access-Control-Allow-Origin', origin);
-    }
+app.use(session({ secret: 'keyboard cat', key: 'sid', resave: false }))
+app.use(passport.initialize());
+app.use(passport.session());
+app.use(cookieParser())
 
 
-    // Request methods you wish to allow
-    res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, PATCH, DELETE');
 
-    // Request headers you wish to allow
-    res.setHeader('Access-Control-Allow-Headers', 'X-Requested-With,content-type');
 
-    // Set to true if you need the website to include cookies in the requests sent
-    // to the API (e.g. in case you use sessions)
-    res.setHeader('Access-Control-Allow-Credentials', true);
+// --- Authentication
+var passportLinkedIn = require('./auth/linkedin');
+app.get('/auth/linkedin', passportLinkedIn.authenticate('linkedin'));
 
-    // Pass to next layer of middleware
-    next();
+app.get('/auth/linkedin/callback',
+  passportLinkedIn.authenticate('linkedin', { failureRedirect: '/' }),
+  function(req, res) {
+    console.log(req.header('Referer'))
+    res.redirect(req.header('Referer'))
+});
+
+app.get('/logout', function(req, res){
+  req.logout();
+  res.redirect(req.header('Referer'))
+});
+
+app.get('/isLoggedIn', function(req, res){
+  res.json(req.user);
 });
 
 
-app.use(logger('dev'));
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({'extended':'false'}));
-app.use(express.static(path.join(__dirname, 'dist')));
+// middleware to ensure user authentication
+function ensureAuthenticated(req, res, next) {
+  if (req.isAuthenticated()) { return next(); }
+  res.send({})
+}
+// -------
+
+
+var ideas = require('./routes/api');
 
 app.use('/', express.static(path.join(__dirname, 'dist')));
 app.use('/api', ideas);
@@ -63,9 +82,12 @@ app.use(function(err, req, res, next) {
   res.locals.message = err.message;
   res.locals.error = req.app.get('env') === 'development' ? err : {};
 
+  console.log(err)
+
   // render the error page
   res.status(err.status || 500);
-  res.render('error');
+  res.redirect('/')
+ //res.render('error');
 });
 
 module.exports = app;

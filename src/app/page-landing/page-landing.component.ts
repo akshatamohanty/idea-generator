@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { AuthenticationService } from '../authentication.service';
+
 
 @Component({
   selector: 'app-page-landing',
@@ -7,9 +9,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PageLandingComponent implements OnInit {
 
-  constructor() { }
+  user;
+
+  constructor(private authService: AuthenticationService) { }
 
   ngOnInit() {
+  	
+  }
+
+  ngAfterViewInit(){
+  	this.user = this.authService.loggedInUser;
   }
 
 }

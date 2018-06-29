@@ -8,6 +8,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatButtonModule, 
          MatInputModule, MatIconModule, 
          MatCardModule, MatSnackBarModule, MatToolbarModule,
+         MatTooltipModule,
          MatProgressSpinnerModule } from '@angular/material';
 
 import { AppComponent } from './app.component';
@@ -18,6 +19,9 @@ import { PageLandingComponent } from './page-landing/page-landing.component';
 import { PageResultsComponent } from './page-results/page-results.component';
 
 import { IdeaService } from './idea.service';
+import { LoggerService } from './logger.service';
+import { AuthenticationService } from './authentication.service';
+
 
 import 'hammerjs';
 
@@ -54,10 +58,11 @@ const appRoutes: Routes = [
     MatSnackBarModule,
     MatButtonModule,
     MatToolbarModule,
+    MatTooltipModule,
     MatProgressSpinnerModule,
     RouterModule.forRoot( appRoutes, {enableTracing: false} )
   ],
-  providers: [ IdeaService ],
+  providers: [ IdeaService, LoggerService, AuthenticationService ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

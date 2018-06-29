@@ -2,7 +2,7 @@
 * @Author: Akshata
 * @Date:   2018-06-28 00:05:30
 * @Last Modified by:   Akshata
-* @Last Modified time: 2018-06-29 21:17:43
+* @Last Modified time: 2018-06-30 01:30:19
 */
 
 .page--results{
@@ -50,4 +50,15 @@
 
 .toolbar__row{
 	padding: 0px;
+}
+
+
+.icon--profile{
+	margin-left: 30px;
+	font-size: 14px;
+	padding: 10px;
+	font-size: 14px;
+	border-radius: 50%;
+	color: #E6CB68;
+	background: #222;
 }

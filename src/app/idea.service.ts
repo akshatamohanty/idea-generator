@@ -10,7 +10,7 @@ export class IdeaService {
   constructor(private http: HttpClient) { }
 
   getIdeas(wordA: string, wordB: string){
-  	return this.http.get<Object[]>(`${this.baseUrl}generate`, 
+  	return this.http.get<Object[]>(`${this.baseUrl}api/generate`, 
   			{
   				params: {wordA: wordA, wordB: wordB}
   			})

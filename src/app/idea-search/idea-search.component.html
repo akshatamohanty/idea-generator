@@ -1,7 +1,7 @@
 <form class="search__wrapper" [class.compressed]="compressed" autocomplete="off">
 	
 	<mat-form-field class="form__element">
-		<input matInput 
+		<input matInput required
 			   placeholder="First Idea"
 			   [(ngModel)]='wordA' 
 			   name='wordA'/>
@@ -10,14 +10,14 @@
 	<mat-icon class="icon icon--plus" *ngIf="compressed">add</mat-icon>
 
 	<mat-form-field class="form__element">
-		<input matInput 
+		<input matInput required
 			   placeholder="Second Idea"
 			   [(ngModel)]='wordB' 
 			   name='wordB'/>
 	</mat-form-field>
 
 	<a class="btn search__button" 
-		*ngIf="wordA && wordB"
+		*ngIf="isAllowed()"
 		[routerLink]="['/results']" [queryParams]="{wordA: wordA, wordB: wordB}">
 
 		<button mat-raised-button color="accent" *ngIf="!compressed">Search</button>

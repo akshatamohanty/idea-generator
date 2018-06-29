@@ -13,4 +13,8 @@ export class IdeaSearchComponent implements OnInit {
 
   ngOnInit() {  }
 
+  isAllowed(): boolean{
+  		return this.wordA && this.wordB && this.wordA.replace(/ /g,"").length && this.wordB.replace(/ /g,"").length > 0;
+  }
+
 }

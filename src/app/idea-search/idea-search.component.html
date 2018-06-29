@@ -1,15 +1,15 @@
-<form class="search__wrapper example-form" [class.compressed]="compressed">
+<form class="search__wrapper" [class.compressed]="compressed" autocomplete="off">
 	
-	<mat-form-field class="example-full-width">
+	<mat-form-field class="form__element">
 		<input matInput 
 			   placeholder="First Idea"
 			   [(ngModel)]='wordA' 
 			   name='wordA'/>
 	</mat-form-field>
 
-	<span><mat-icon>add</mat-icon></span>
+	<mat-icon class="icon icon--plus" *ngIf="compressed">add</mat-icon>
 
-	<mat-form-field class="example-full-width">
+	<mat-form-field class="form__element">
 		<input matInput 
 			   placeholder="Second Idea"
 			   [(ngModel)]='wordB' 
@@ -20,8 +20,8 @@
 		*ngIf="wordA && wordB"
 		[routerLink]="['/results']" [queryParams]="{wordA: wordA, wordB: wordB}">
 
-		<button mat-raised-button color="accent" *ngIf="!compressed">Get Ideas!</button>
-		<button mat-raised-button color="accent" *ngIf="compressed"><mat-icon>refresh</mat-icon></button>
+		<button mat-raised-button color="accent" *ngIf="!compressed">Search</button>
+		<button class="btn--square" mat-raised-button color="accent" *ngIf="compressed"><mat-icon>search</mat-icon></button>
 
 	</a>
 

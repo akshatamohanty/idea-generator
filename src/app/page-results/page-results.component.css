@@ -2,25 +2,52 @@
 * @Author: Akshata
 * @Date:   2018-06-28 00:05:30
 * @Last Modified by:   Akshata
-* @Last Modified time: 2018-06-29 00:25:00
+* @Last Modified time: 2018-06-29 21:17:43
 */
 
 .page--results{
-	text-align: center;
-
 	display: flex;
 	flex-direction: column;
 }
 
-.page__content-wrapper{
+.page__header{
+	display: flex; 
+	flex-direction: row; 
+	flex-wrap: wrap;
+	justify-content: space-between;
+
+	background: none;
+}
+
+.page__content{
 	display: flex; 
 	flex-direction: column;
+
+	margin-top: 45px;
 }
 
-.example-icon {
-  padding: 0 14px;
+.page__content__subheading{
+	font-weight: 100;
+	font-size: 1.6em;
+	line-height: 2em;
 }
 
-.example-spacer {
+.highlight{
+	color: #E6CB68;
+	font-weight: 600;
+}
+
+
+
+.spacer {
   flex: 1 1 auto;
+}
+
+.icon {
+  padding: 0 14px;
+  font-size: 32px;
+}
+
+.toolbar__row{
+	padding: 0px;
 }

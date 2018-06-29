@@ -2,7 +2,7 @@
 * @Author: Akshata
 * @Date:   2018-06-27 22:01:46
 * @Last Modified by:   Akshata
-* @Last Modified time: 2018-06-28 22:54:33
+* @Last Modified time: 2018-06-29 21:31:59
 */
 
 .search__wrapper{
@@ -10,7 +10,6 @@
 	flex-direction: column;
 	flex-wrap: wrap;
 	justify-content: space-between;
-	align-items: center;
 
 	margin: 30px 0px;
 }	
@@ -24,57 +23,28 @@
 	pointer-events: none;
 }
 
-/*
+
+.btn--square{
+	width: 45px;
+	height: 45px;
+	min-width: 10px;
+	margin: 0px;
+	padding: 0px;
+}
 
 
-
-.search__inputs{
-	background: transparent;
-	font-size: 30px;
+input{
+	font-size: 24px;
+	line-height: 32px;
+	color: gray;
 	font-weight: 100;
-
-	margin: 25px 0px;
-	padding: 5px;
-
-	border: 0px;
-	border-bottom: 1px solid gray;
-	text-align: center;
+	font-family: 'Raleway';
 }
 
-.search__button{
-	height: 50px;
-
-	font-size: 18px;
-	line-height: 50px;
-	text-transform: uppercase;
-
-	padding: 10px 30px;
-	margin-top: 30px;
-
-	border: 1px solid #222; 
-	background-color: black;
-	color: #f7f7f7;
-	border-radius: 4px;
-	text-align: center;
+.form__element{
+	margin-bottom: 30px;
 }
 
-.example-full-width{
-	text-align: center;
+.icon--plus{
+	margin-top: 15px;
 }
-
-
-
-.compressed .search__inputs{
-	font-size: 16px;
-	line-height: 18px;
-	padding: 10px 0px;
-}
-
-.compressed .search__button{
-	height: 24px;
-	width: 24px;
-	margin-top: -25px;
-	line-height: 24px;
-}
-
-*/

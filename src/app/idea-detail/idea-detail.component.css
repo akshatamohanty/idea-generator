@@ -2,63 +2,33 @@
 * @Author: Akshata
 * @Date:   2018-06-27 22:02:15
 * @Last Modified by:   Akshata
-* @Last Modified time: 2018-06-28 23:02:23
+* @Last Modified time: 2018-06-29 20:51:27
 */
 
-/*
-.wrapper__idea{
-	background-color: white;
-	padding: 15px;
+.idea-card{
+	margin: 30px auto;
+}
 
-	color: black;
+.card__header{
 	font-size: 18px;
-	border: 1px solid black;
-	border-radius: 4px;
-
-	margin: 15px;
-
-	display: flex;
-	flex-direction: row;
-	flex-wrap: wrap;
-	justify-content: space-between;
-}
-
-.idea__actions{
-	position: relative;
-	text-align: right;
-}
-
-.wrapper--right{
-}
-
-.icon{
-	cursor: pointer;
-	font-size: 32px;
-	margin: 0px 15px;
-}
-
-.idea-card{
-	margin: 15px;
-}
-
-.card__header{
-	font-size: 24px;
-	font-weight: 300;
-	text-align: center;
-}
-
-*/
-
-.idea-card{
-	margin-bottom: 10px;
-}
-
-.card__header{
-	font-size: 24px;
-	font-weight: 300;
-	text-align: center;
+	line-height: 32px;
+	font-weight: 100;
+	font-family: Raleway;
 }
 
 .card__actions{
 	text-align: right;
+}
+
+.card__actions button{
+	margin: 10px;
+}
+
+.icon{
+	font-size: 32px;
+}
+
+.page__content{
+	max-width: 450px;
+	min-width: 300px;
 }

@@ -1,23 +1,34 @@
-<mat-toolbar color="accent">
-  <mat-toolbar-row>
-    <span><b>IdeaGenerator.</b></span>
-    <span class="example-spacer"></span>
-    <a target="_blank"
-    	href="https://twitter.com/intent/tweet?text={{tweet}}!">
-    	<mat-icon class="example-icon">share</mat-icon>
-    </a>
-    <a>
-    	<mat-icon class="example-icon">account_circle</mat-icon>
-	</a>
-  </mat-toolbar-row>
-</mat-toolbar>
+<div class="page">
+    <mat-toolbar class="page__header">
+      
+      <mat-toolbar-row class="toolbar__row">
+
+        <span class="logo"><a href="/">IdeaMaker.</a></span>
+        
+        <div class="spacer"></div>
+        
+        <a target="_blank"
+        	href="https://twitter.com/intent/tweet?text={{tweet}}!">
+        	<mat-icon class="icon">share</mat-icon>
+        </a>
+        <a>
+        	<mat-icon class="icon">account_circle</mat-icon>
+    	</a>
+      
+      </mat-toolbar-row>
+
+    </mat-toolbar>
 
 
-<div class="page page--results">
+    <div class="page__content">
 
-	<!-- <h1 class="page__element--header">Idea Generator App.</h1> -->
-	<app-idea-search [wordA]='wordA' [wordB]='wordB' [compressed]="true"></app-idea-search>
+        <app-idea-search [wordA]='wordA' [wordB]='wordB' [compressed]="true"></app-idea-search>
 
-	<app-idea-list [ideas]='results | async'></app-idea-list>
+        <h2 class="page__content__subheading">
+            Do you like these ideas for <span class="highlight">{{wordA}}</span> and <span class="highlight">{{wordB}}</span>?
+        </h2>
+       
+        <app-idea-list [ideas]='results | async'></app-idea-list>
 
+    </div>
 </div>

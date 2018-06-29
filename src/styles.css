@@ -71,8 +71,8 @@ a::visited{
 
 
 .page{
-	width: 600px;
 	margin: 0 auto;
+	max-width: 600px;
 }
 
 
@@ -82,4 +82,44 @@ a::visited{
 	padding: 5px;
 	border-radius: 4px;
 	font-family: 'Raleway';
+}
+
+
+/*
+ *	Media Queries
+ */
+/* Extra small devices (phones, 600px and down) */
+@media only screen and (max-width: 600px) {	
+	.page--responsive{
+		width: 100%;
+		padding: 30px;
+	}
+} 
+
+/* Small devices (portrait tablets and large phones, 600px and up) */
+@media only screen and (min-width: 600px) {	
+	.page--responsive{
+		width: 100%;
+		padding: 30px;
+	}
+} 
+
+/* Medium devices (landscape tablets, 768px and up) */
+@media only screen and (min-width: 768px) {	
+	.page--responsive{
+		width: 100%;
+		padding: 45px;
+	}
+} 
+
+/* Large devices (laptops/desktops, 992px and up) */
+@media only screen and (min-width: 992px) {	
+	.page--responsive{
+		width: 100%;
+		padding: 60px;
+	}
+} 
+
+/* Extra large devices (large laptops and desktops, 1200px and up) */
+@media only screen and (min-width: 1200px) {
 }

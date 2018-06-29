@@ -22,7 +22,8 @@ export class IdeaListComponent implements OnInit {
           if(this.displayedCount < this.ideas.length){
               this.snackBar.open('Adding a few more ideas!', '', {duration: 800} );
               setTimeout(()=>{   
-                    this.displayedCount++;
+                    this.displayedCount += 10;
+                    console.log(this.displayedCount)
               }, 1000);
           }
           else{
